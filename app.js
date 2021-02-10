@@ -23,9 +23,10 @@ const Infos =  mongoose.model("Info" ,infoSchema  );
 app.get("/infos" , function(req ,res){
   Infos.find(function(err , foundInfos){
   //  console.log(foundInfos);
-  res.send(foundInfos);
+    res.send(foundInfos);
   });
 });
+
 
 app.listen(3000, function() {
  console.log("Server started on port 3000");
