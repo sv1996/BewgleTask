@@ -14,16 +14,37 @@ app.use(express.static("public"));
 
 //TODO
 mongoose.connect("mongodb://localhost:27017/bewgleDB" , {useNewUrlParser:true});
-const infoSchema = {
-  title: String,
-  content: String
-};
+var myDateString = Date();
+const processSchema = {
+  date:  myDateString,
+  method:String,
+  headers: String,
+  path:String ,
+  query: String,
+  body:String,
+  duration:String
+//  content: String
 
-const Infos =  mongoose.model("Info" ,infoSchema  );
-app.get("/infos" , function(req ,res){
-  Infos.find(function(err , foundInfos){
+
+};
+var date = new Date();
+
+
+const Process =  mongoose.model("Process" , processSchema  );
+app.get("/processes" , function(req ,res){
+  Process.find(function(err , foundProcesses){
   //  console.log(foundInfos);
-    res.send(foundInfos);
+  // console.log( foundProcesses);
+   res.send(foundProcesses);
+
+  //if(!err){
+///    res.send(foundProcesses);
+///  }
+//  else
+//  {
+//    res.send(err);
+//
+//console.log(req.body.date)
   });
 });
 
