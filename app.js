@@ -14,9 +14,9 @@ app.use(express.static("public"));
 
 //TODO
 mongoose.connect("mongodb://localhost:27017/bewgleDB" , {useNewUrlParser:true});
-var myDateString = Date();
+//var myDateString = Date();
 const processSchema = {
-  date:  myDateString,
+  date:  String,
   method:String,
   headers: String,
   path:String ,
@@ -27,16 +27,21 @@ const processSchema = {
 
 
 };
-var date = new Date();
+
+
+
 
 
 const Process =  mongoose.model("Process" , processSchema  );
-app.get("/processes" , function(req ,res){
-  Process.find(function(err , foundProcesses){
+app.get("/processes" , function(req ,res)
+{
+  Process.find(function(err , foundProcesses)
+  {
   //  console.log(foundInfos);
   // console.log( foundProcesses);
-   res.send(foundProcesses);
-
+//   res.send(foundProcesses);
+//console.log( foundProcesses);
+   console.log(req.Methods);
   //if(!err){
 ///    res.send(foundProcesses);
 ///  }
