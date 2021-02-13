@@ -4,7 +4,7 @@ const ejs = require("ejs");
 const mongoose = require('mongoose');
 
 const app = express();
-
+app.use(express.json());
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({
@@ -23,6 +23,8 @@ const processSchema = {
   query: String,
   body:String,
   duration:String
+
+  Sring 
 //  content: String
 
 
